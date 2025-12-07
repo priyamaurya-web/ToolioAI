@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Text Summarizer - Summarize long texts, articles, and documents instantly. No registration required.">
+    <title>Text Summarizer - ToolioAI</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    
+    <!-- Schema.org Markup for Tool -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Text Summarizer",
+        "applicationCategory": "TextApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to summarize long texts and articles",
+        "url": "https://toolioai.com/tools/text-summarizer.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <i class="fas fa-tools"></i>
+                        <span>Toolio<span class="logo-highlight">AI</span></span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search tools..." class="search-input">
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../pages/about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="../pages/contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Theme Switcher -->
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <button id="mobileMenuClose" class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-list">
+                <li><a href="../index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../pages/about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="../pages/contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="../pages/privacy.html" class="mobile-nav-link"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+                <li><a href="../pages/terms.html" class="mobile-nav-link"><i class="fas fa-file-contract"></i> Terms</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h1><i class="fas fa-file-contract"></i> Text Summarizer</h1>
+                    <p>Summarize long texts, articles, and documents instantly. Perfect for students, researchers, and professionals.</p>
+                </div>
+                
+                <!-- Google AdSense: Insert ad code here (Tool Page Top) -->
+                <div class="ad-placeholder content-ad">
+                    <span>Ad Space (728x90)</span>
+                    <p>Google AdSense</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="textInput">
+                            <i class="fas fa-align-left"></i> Enter your text to summarize
+                        </label>
+                        <textarea id="textInput" class="text-input textarea-input" 
+                                  placeholder="Paste your long text here... (Minimum 100 characters for best results)"
+                                  rows="8"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="summaryLength">
+                            <i class="fas fa-ruler"></i> Summary Length: <span id="lengthValue">50%</span>
+                        </label>
+                        <div class="range-container">
+                            <input type="range" id="summaryLength" class="range-input" min="10" max="90" value="50">
+                        </div>
+                        <div class="range-labels">
+                            <span>Shorter</span>
+                            <span>Longer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="summarizeBtn" class="btn btn-primary btn-full">
+                            <i class="fas fa-magic"></i> Summarize Text
+                        </button>
+                    </div>
+                    
+                    <div id="resultContainer" class="result-container">
+                        <div class="result-header">
+                            <h3 class="result-title">Summary Result</h3>
+                            <button id="copyBtn" class="copy-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <div id="summaryOutput" class="result-content"></div>
+                    </div>
+                    
+                    <div class="tool-info">
+                        <h3><i class="fas fa-lightbulb"></i> How it works</h3>
+                        <ul>
+                            <li>Our algorithm analyzes sentence importance using word frequency</li>
+                            <li>Key sentences are extracted based on their relevance score</li>
+                            <li>100% privacy - your text never leaves your browser</li>
+                            <li>Works best with articles, reports, and academic papers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Google AdSense: Insert ad code here (Tool Page Bottom) -->
+                <div class="ad-placeholder content-ad">
+                    <span>Ad Space (728x90)</span>
+                    <p>Google AdSense</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo footer-logo">
+                        <i class="fas fa-tools"></i>
+                        <span>Toolio<span class="logo-highlight">AI</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Free online tools for everyday tasks. No registration required.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../pages/about.html">About Us</a></li>
+                        <li><a href="../pages/contact.html">Contact</a></li>
+                        <li><a href="../pages/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../pages/terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Text Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="text-summarizer.html">Text Summarizer</a></li>
+                        <li><a href="grammar-checker.html">Grammar Checker</a></li>
+                        <li><a href="text-rewriter.html">Text Rewriter</a></li>
+                        <li><a href="word-counter.html">Word Counter</a></li>
+                        <li><a href="code-minifier.html">Code Minifier</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-product-hunt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> ToolioAI. All rights reserved.</p>
+                <p class="footer-note">
+                    Made with <i class="fas fa-heart"></i> for the community
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+</body>
+</html>
